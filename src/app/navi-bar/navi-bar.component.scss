@@ -1,5 +1,5 @@
-@use '@angular/material' as mat;
-@use '../../styles';
+@use '../../../node_modules/@angular/material/index' as mat;
+@use '../styles/m3-theme';
 
 @include mat.core();
 
@@ -10,4 +10,25 @@ html {
   // Apply the light theme by default
   @include mat.core-theme(m3-theme.$light-theme);
   @include mat.button-theme(m3-theme.$light-theme);
+
+}
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+.content {
+  padding: 16px;
+}
+
+.mat-toolbar-row img {
+  margin-right: 16px;
+}
+
+.app-title {
+  font-size: 24px;
+  margin-left: 16px;
 }

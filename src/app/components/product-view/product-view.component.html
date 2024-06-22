@@ -1,0 +1,15 @@
+<mat-grid-list cols="3" rowHeight="1:1">
+  <mat-grid-tile *ngFor="let item of products">
+    <mat-card>
+      <img mat-card-image src="https://via.placeholder.com/300">
+      <mat-card-header>
+        <mat-card-title>{{ item.name }}</mat-card-title>
+        <mat-card-subtitle>{{ item.description }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Unit Price: {{ item.unitPrice | currency: 'USD' }}</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
