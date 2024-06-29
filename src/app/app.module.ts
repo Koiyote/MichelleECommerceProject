@@ -27,11 +27,13 @@ import {MatGridList, MatGridTile} from "@angular/material/grid-list";
 import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 
 
 const Routes: Routes = [
+  {path: 'products/:id', component: ProductDetailsComponent},
   {path: 'search/:keyword', component: ProductViewComponent},
   { path: 'product-category/:id', component: ProductViewComponent},
   { path: 'product-category', component: ProductViewComponent},
@@ -48,6 +50,7 @@ const Routes: Routes = [
     SearchBarComponent,
     FooterComponent,
     ProductCategoryMenuComponent,
+    ProductDetailsComponent,
 
 
   ],

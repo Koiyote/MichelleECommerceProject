@@ -1,9 +1,16 @@
 <mat-grid-list cols="3" rowHeight="1:1">
+  <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+    No Products Found.
+  </div>
   <mat-grid-tile *ngFor="let item of products">
     <mat-card>
-      <img mat-card-image src="https://via.placeholder.com/300">
+      <a routerLink="/products/{{item.id}}">
+        <img mat-card-image src="https://via.placeholder.com/300">
+      </a>
       <mat-card-header>
-        <mat-card-title>{{ item.name }}</mat-card-title>
+        <mat-card-title>
+          <a class="link" routerLink="/products/{{item.id}}">{{ item.name }}</a>
+          </mat-card-title>
         <mat-card-subtitle>{{ item.description }}</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content>
@@ -12,4 +19,5 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
+
 

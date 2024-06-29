@@ -2,4 +2,9 @@
   list-style-type: none;
 }
 
+.link {
+  text-decoration: none;
+  color: white;
+}
+
 /*# sourceMappingURL=product-category-menu.component.css.map */

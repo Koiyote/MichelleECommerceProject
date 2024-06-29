@@ -14,7 +14,8 @@ export class ProductViewComponent implements OnInit{
   currentCategoryId: number = 1;
   searchMode: boolean = false;
   constructor(private client: ProductService,
-              private route: ActivatedRoute){}
+              private route: ActivatedRoute
+              ){}
   ngOnInit() {
     this.route.paramMap.subscribe(() =>{
       this.getAllProducts()

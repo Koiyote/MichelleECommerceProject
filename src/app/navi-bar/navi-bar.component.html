@@ -14,7 +14,7 @@
             </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="accordion-content">
-            <span ></span>
+            <span></span>
             <app-product-category-menu></app-product-category-menu>
           </div>
         </mat-expansion-panel>
@@ -23,7 +23,6 @@
             <mat-panel-title>
               Panel 2
             </mat-panel-title>
-
           </mat-expansion-panel-header>
           <div class="accordion-content">
             <a routerLink="form" class="text-reset text-decoration-none">Sign Up</a>
@@ -38,9 +37,17 @@
       <button *ngIf="(isHandset$ | async)" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span><img [src]="imageURL" alt="Logo" height="50" /></span>
-      <span class="app-title">Michi design thrift books and more</span>
-      <app-search-bar></app-search-bar>
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-md-6 d-flex align-items-center">
+            <img src="https://via.placeholder.com/50" alt="Logo" height="50" />
+            <span class="app-title ml-2">Michi design thrift books and more</span>
+          </div>
+          <div class="col-md-6 d-flex justify-content-end">
+            <app-search-bar></app-search-bar>
+          </div>
+        </div>
+      </div>
     </mat-toolbar>
     <div class="content">
       <router-outlet></router-outlet>
