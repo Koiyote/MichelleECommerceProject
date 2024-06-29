@@ -29,7 +29,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
-
+import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 const Routes: Routes = [
@@ -75,7 +75,8 @@ const Routes: Routes = [
     RouterModule.forRoot(Routes),
     HttpClientModule,
     MatGridTile,
-    MatGridList
+    MatGridList,
+    NgbModule
 
   ],
   providers: [
