@@ -15,7 +15,7 @@ export class NaviBarComponent {
 
 
 
-  imageURL: string = "https://placehold.co/600x400";
+  imageURL: string = "http://localhost:8079/HollyHobbyXStrawberryShortcake.webp";
 
 
 

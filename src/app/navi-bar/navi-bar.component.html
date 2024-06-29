@@ -1,13 +1,35 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav #drawer class="sidenav autosize" fixedInViewport
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+    <mat-toolbar><a routerLink="/" class="text-reset text-decoration-none">Home</a></mat-toolbar>
     <mat-nav-list>
       <!-- Add your navigation items here -->
-      <a mat-list-item routerLink="/home">Home</a>
-      <a mat-list-item routerLink="/about">About</a>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Categories
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="accordion-content">
+            <span ></span>
+            <app-product-category-menu></app-product-category-menu>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              Panel 2
+            </mat-panel-title>
+
+          </mat-expansion-panel-header>
+          <div class="accordion-content">
+            <a routerLink="form" class="text-reset text-decoration-none">Sign Up</a>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
       <!-- More items can be added here -->
     </mat-nav-list>
   </mat-sidenav>
@@ -17,7 +39,8 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span><img [src]="imageURL" alt="Logo" height="50" /></span>
-      <span class="app-title">Stuff</span>
+      <span class="app-title">Michi design thrift books and more</span>
+      <app-search-bar></app-search-bar>
     </mat-toolbar>
     <div class="content">
       <router-outlet></router-outlet>

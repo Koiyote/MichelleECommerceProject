@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ProductService} from "../../services/product.service";
 import {Product} from "../../../common/product";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-product-view',
@@ -10,15 +11,53 @@ import {Product} from "../../../common/product";
 export class ProductViewComponent implements OnInit{
 
   products: Product[] = [];
-
-  constructor(private client: ProductService){}
+  currentCategoryId: number = 1;
+  searchMode: boolean = false;
+  constructor(private client: ProductService,
+              private route: ActivatedRoute){}
   ngOnInit() {
-    this.getAllProducts()
+    this.route.paramMap.subscribe(() =>{
+      this.getAllProducts()
+    })
+
   }
 
   getAllProducts(): void {
-    this.client.getProductList().subscribe(data =>
-      this.products = data
-    )
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');
+
+    if(this.searchMode){
+      this.handleSearchProducts();
+    }else{
+      this.handleListProducts();
+    }
+
+
+
   }
+
+  handleSearchProducts(){
+    const theKeyword = this.route.snapshot.paramMap.get('keyword')!;
+    this.client.searchProducts(theKeyword).subscribe(
+      data => {
+        this.products = data;
+      }
+    )
+
+
+  }
+
+  handleListProducts(){
+    const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id')
+      if(hasCategoryId){
+        this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;
+        console.log(this.currentCategoryId);
+        } else{
+        this.currentCategoryId = 1;
+      }
+
+      this.client.getProductList(this.currentCategoryId).subscribe(data =>
+        this.products = data
+        )
+      }
+
 }

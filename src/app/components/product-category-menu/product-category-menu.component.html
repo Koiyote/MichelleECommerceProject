@@ -1,0 +1,8 @@
+<div class="fluid-container">
+    <ul>
+        <li *ngFor="let tempProductCategory of productCategories" class="list-item">
+          <a routerLink="/product-category/{{tempProductCategory.categoryId}}" routerLinkActive="active">{{tempProductCategory.categoryName}}</a>
+        </li>
+
+    </ul>
+</div>

@@ -24,13 +24,19 @@ import {ProductService} from "./services/product.service";
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import {HttpClientModule} from "@angular/common/http";
 import {MatGridList, MatGridTile} from "@angular/material/grid-list";
+import { SearchBarComponent } from './search-bar/search-bar.component';
+import { FooterComponent } from './footer/footer.component';
+import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
 
 
 
 
 const Routes: Routes = [
-  { path: '', component:  ProductViewComponent}
-
+  {path: 'search/:keyword', component: ProductViewComponent},
+  { path: 'product-category/:id', component: ProductViewComponent},
+  { path: 'product-category', component: ProductViewComponent},
+  {path: '**', component: ProductViewComponent},
+  { path: '', redirectTo: '/products', pathMatch:  'full'}
 ];
 
 @NgModule({
@@ -38,7 +44,11 @@ const Routes: Routes = [
     AppComponent,
     NaviBarComponent,
     ProductViewComponent,
-    ProductViewComponent
+    ProductViewComponent,
+    SearchBarComponent,
+    FooterComponent,
+    ProductCategoryMenuComponent,
+
 
   ],
   imports: [
