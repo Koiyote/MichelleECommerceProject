@@ -31,6 +31,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatBadge, MatBadgeModule} from "@angular/material/badge";
+import { CartStatusComponent } from './components/cart-status/cart-status.component';
 
 
 const Routes: Routes = [
@@ -52,6 +53,7 @@ const Routes: Routes = [
     FooterComponent,
     ProductCategoryMenuComponent,
     ProductDetailsComponent,
+    CartStatusComponent,
 
 
   ],

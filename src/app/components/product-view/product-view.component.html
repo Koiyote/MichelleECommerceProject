@@ -44,7 +44,9 @@
       </mat-card-header>
       <mat-card-content>
         <p>Unit Price: {{ item.unitPrice | currency: 'USD' }}</p>
+        <button (click)="addToCart(item)" mat-raised-button color="primary">Add to Cart</button>
       </mat-card-content>
+
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
