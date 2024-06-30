@@ -21,3 +21,9 @@ mat-nav-list{
   @include mat.all-component-colors($dark-theme)
 }
 
+.roboto-condensed-font-style {
+                     font-family: "Roboto Condensed", sans-serif;
+                     font-optical-sizing: auto;
+                     font-weight: 717;
+                     font-style: italic;
+                   }

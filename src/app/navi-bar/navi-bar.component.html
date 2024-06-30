@@ -39,12 +39,24 @@
       </button>
       <div class="container-fluid">
         <div class="row align-items-center">
-          <div class="col-md-6 d-flex align-items-center">
-            <img src="https://via.placeholder.com/50" alt="Logo" height="50" />
-            <span class="app-title ml-2">Michi design thrift books and more</span>
+          <div class="col-md-12 d-flex align-items-center">
+            <div class="col-md-6">
+
+                <img src="https://via.placeholder.com/50" alt="Logo" height="50" />
+
+                <span class="app-title roboto-condensed-font-style">Michi Design Thrift Books And More</span>
+
+            </div>
+            <div class="col-md-4 ">
+              <app-search-bar></app-search-bar>
+            </div>
+            <div class="price-badge-container">
+              <div matBadge="{{ 3.14 | currency:'USD' }}" matBadgePosition="above after" matBadgeColor="primary">
+                <mat-icon>shopping_cart</mat-icon>
+              </div>
+            </div>
           </div>
-          <div class="col-md-6 d-flex justify-content-end">
-            <app-search-bar></app-search-bar>
+          <div class="col-md-6 justify-content-left">
           </div>
         </div>
       </div>

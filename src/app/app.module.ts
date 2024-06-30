@@ -30,6 +30,7 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
+import {MatBadge, MatBadgeModule} from "@angular/material/badge";
 
 
 const Routes: Routes = [
@@ -76,7 +77,9 @@ const Routes: Routes = [
     HttpClientModule,
     MatGridTile,
     MatGridList,
-    NgbModule
+    NgbModule,
+    MatBadgeModule,
+    MatIconModule
 
   ],
   providers: [

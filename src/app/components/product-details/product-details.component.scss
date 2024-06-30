@@ -1,0 +1,43 @@
+.product-details-container {
+  display: flex;
+  justify-content: left;
+  padding: 20px;
+}
+
+.product-card {
+  max-width: 600px;
+  width: 100%;
+  padding: 20px;
+  margin-left: 15%;
+}
+
+.product-card-header {
+  justify-content: center;
+}
+
+.product-image {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.product-card-content {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.product-price {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.product-stock {
+  font-size: 1.2em;
+  color: #757575;
+}
+
+.product-card-actions {
+  display: flex;
+  justify-content: center;
+}

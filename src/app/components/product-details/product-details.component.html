@@ -1,20 +1,17 @@
+
 <div class="product-details-container">
-  <mat-card>
-    <mat-card-header>
+  <mat-card class="product-card">
+    <mat-card-header class="product-card-header">
       <mat-card-title>{{ product.name }}</mat-card-title>
-      <mat-card-subtitle >{{ product.description }}</mat-card-subtitle>
+      <mat-card-subtitle>{{ product.description }}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image class="mt-5 mb-6" src="https://via.placeholder.com/300" height="300" width="300">
-    <div class="mt-6 mb-6">
-      <mat-card-content>
-
-        <p>Price: {{ product.unitPrice | currency }}</p>
-        <p>Units in Stock: {{ product.unitsInStock }}</p>
-
-
-      </mat-card-content>
-    </div>
-    <mat-card-actions class="mt-6">
+    <hr>
+    <img mat-card-image src="https://via.placeholder.com/300" alt="{{ product.name }}" class="product-image">
+    <mat-card-content class="product-card-content">
+      <p class="product-price">Price: {{ product.unitPrice | currency }}</p>
+      <p class="product-stock">Units in Stock: {{ product.unitsInStock }}</p>
+    </mat-card-content>
+    <mat-card-actions class="product-card-actions">
       <button mat-raised-button color="primary">Add to Cart</button>
     </mat-card-actions>
   </mat-card>
