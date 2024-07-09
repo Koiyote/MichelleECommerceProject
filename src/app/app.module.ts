@@ -19,7 +19,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormBuilder, ReactiveFormsModule} from '@angular/forms';
 import {ProductService} from "./services/product.service";
 import { ProductViewComponent } from './components/product-view/product-view.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -32,9 +32,15 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatBadge, MatBadgeModule} from "@angular/material/badge";
 import { CartStatusComponent } from './components/cart-status/cart-status.component';
+import { CartDetailsComponent } from './components/cart-details/cart-details.component';
+import {CartService} from "./services/cart.service";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import { CheckoutComponent } from './components/checkout/checkout.component';
 
 
 const Routes: Routes = [
+  {path: 'checkout', component: CheckoutComponent},
+  {path: 'cart-details', component: CartDetailsComponent},
   {path: 'products/:id', component: ProductDetailsComponent},
   {path: 'search/:keyword', component: ProductViewComponent},
   { path: 'product-category/:id', component: ProductViewComponent},
@@ -54,6 +60,8 @@ const Routes: Routes = [
     ProductCategoryMenuComponent,
     ProductDetailsComponent,
     CartStatusComponent,
+    CartDetailsComponent,
+    CheckoutComponent,
 
 
   ],
@@ -81,12 +89,15 @@ const Routes: Routes = [
     MatGridList,
     NgbModule,
     MatBadgeModule,
-    MatIconModule
+    MatIconModule,
+    FontAwesomeModule,
+    ReactiveFormsModule
 
   ],
   providers: [
     ProductService,
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    CartService
   ],
   bootstrap: [AppComponent]
 })

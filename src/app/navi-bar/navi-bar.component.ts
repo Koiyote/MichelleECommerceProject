@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import {Observable, shareReplay} from 'rxjs';
 import { map} from 'rxjs/operators';
 import {ProductService} from "../services/product.service";
-import {Product} from "../../common/product";
+import {Product} from "../common/product";
 
 @Component({
   selector: 'app-navi-bar',

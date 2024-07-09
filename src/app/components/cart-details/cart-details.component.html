@@ -1,0 +1,55 @@
+<table class="table table-bordered" *ngIf="cartItems.length > 0">
+  <thead class="thead-dark">
+    <tr>
+      <th width="20%">Product Image</th>
+      <th width="50%">Product Detail</th>
+      <th width="30%"></th>
+    </tr>
+  </thead>
+  <tr *ngFor="let tempCartItem of cartItems">
+    <td>
+      <img src="https://via.placeholder.com/300" class="img-responsive" width="150px">
+    </td>
+    <td>
+      <p>{{tempCartItem.name}}</p>
+      <p>{{tempCartItem.unitPrice | currency:'USD'}}</p>
+    </td>
+    <td>
+      <label>Quantity</label>
+      <div class="row no-gutters">
+        <div class="col">
+          <button class="btn btn-primary btn-sm">
+            <fa-icon (click)="incrementQuantity(tempCartItem)" [icon]="['fas', 'plus']"></fa-icon>
+          </button>
+        </div>
+        <div class="col ml-4 mr-2">
+          {{tempCartItem.quantity}}
+        </div>
+        <div class="col">
+          <button class="btn btn-primary btn-sm">
+            <fa-icon (click)="decrementQuantity(tempCartItem)" [icon]="['fas', 'minus']"></fa-icon>
+          </button>
+
+
+        </div>
+      </div>
+      <div class="row ml-3 col-md-3">
+        <button class="btn btn-primary btn-sm ml-5" (click)="remove(tempCartItem)">Remove</button>
+      </div>
+      <label>Subtotal: {{tempCartItem.quantity * tempCartItem.unitPrice}}</label>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2"></td>
+    <td>
+      <p>Total Quantity: {{totalQuantity}}</p>
+      <p>Total Price: {{totalPrice}}</p>
+      <p>Free Shipping: Free</p>
+
+    </td>
+  </tr>
+</table>
+<button routerLink="/checkout" class="btn btn-primary btn-sm">Checkout</button>
+  <div *ngIf="cartItems.length == 0" class="alert alert-warning col-md-12" role="alert">
+    <p>Nothing to display</p>
+  </div>
