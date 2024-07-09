@@ -90,7 +90,7 @@
 
             <div class="mt-4 form-group col-md-12">
               <label>State:   </label>
-              <select class="form-control custom-select-box">
+              <select class="form-control custom-select-box" formControlName="state">
                 <option *ngFor="let state of shippingAddressStates">{{state.name}}</option>
               </select>
             </div>
@@ -100,8 +100,8 @@
               </div>
             </div>
             <div class="mt-4 form-group col-md-12">
-              <label>Zip Code:   </label>
-              <input class="form-control" type="number" formControlName="zipCode">
+              <label>Zip Code: </label>
+              <input class="form-control" type="text" formControlName="zipCode">
             </div>
             <div *ngIf="shippingAddressZipCode.invalid && (shippingAddressZipCode.dirty || shippingAddressZipCode.touched)" class="alert alert-danger mt-1">
               <div *ngIf="shippingAddressZipCode.errors?.['required'] || shippingAddressZipCode.errors?.['notOnlyWhitespace']">
@@ -158,8 +158,8 @@
             </div>
             <div class="mt-4 form-group col-md-12">
               <label>State:   </label>
-              <select class="form-control custom-select-box">
-                <option *ngFor="let state of billingAddressStates">{{state.name}}</option>
+              <select class="form-control custom-select-box" formControlName="state" >
+                <option *ngFor="let state of billingAddressStates" [value]="state.name">{{state.name}}</option>
               </select>
             </div>
             <div *ngIf="billingAddressState.invalid && (billingAddressState.dirty || billingAddressState.touched)" class="alert alert-danger mt-1">
@@ -168,8 +168,8 @@
               </div>
             </div>
             <div class="mt-4 form-group col-md-12">
-              <label>Zip Code:   </label>
-              <input class="form-control" type="number" formControlName="zipCode">
+              <label>Zip Code: </label>
+              <input class="form-control" type="text" formControlName="zipCode">
             </div>
             <div *ngIf="billingAddressZipCode.invalid && (billingAddressZipCode.dirty || billingAddressZipCode.touched)" class="alert alert-danger mt-1">
               <div *ngIf="billingAddressZipCode.errors?.['required'] || billingAddressZipCode.errors?.['notOnlyWhitespace']">

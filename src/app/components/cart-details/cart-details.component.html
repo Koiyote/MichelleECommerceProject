@@ -49,7 +49,8 @@
     </td>
   </tr>
 </table>
-<button routerLink="/checkout" class="btn btn-primary btn-sm">Checkout</button>
+
   <div *ngIf="cartItems.length == 0" class="alert alert-warning col-md-12" role="alert">
     <p>Nothing to display</p>
   </div>
+<button *ngIf="cartItems.length > 0" routerLink="/checkout" class="btn btn-primary btn-sm">Checkout</button>
