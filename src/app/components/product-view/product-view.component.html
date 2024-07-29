@@ -2,16 +2,16 @@
   <div class="container-fluid">
     <div class="row align-items-center justify-content-end">
       <div class="col-md-6"></div>
-      <div class="d-flex align-items-center col-md-6" style="margin-left: 15px;">
-        <label for="pageSizeSelect" class="mr-2 mb-0">Page Size:</label>
-        <select id="pageSizeSelect" #myPageSelect (change)="updatePageSize(myPageSelect.value)" >
-          <option [value]="5" selected="true">5</option>
-          <option [value]="10">10</option>
-          <option [value]="20">20</option>
-          <option [value]="50">50</option>
-        </select>
-      </div>
-      <div class="col-md-4 d-flex justify-content-end align-items-center">
+        <div class="d-flex align-items-center col-md-6" style="margin-left: 15px;">
+          <label for="pageSizeSelect">Page Size:</label>
+          <select id="pageSizeSelect" #myPageSelect (change)="updatePageSize(myPageSelect.value)" >
+            <option [value]="5" >5</option>
+            <option [value]="10" selected="true">10</option>
+            <option [value]="20">20</option>
+            <option [value]="50">50</option>
+          </select>
+        </div>
+      <div class="col-md-4 d-flex align-items-left justify-content-end">
         <ngb-pagination
           [(page)]="thePageNumber"
           [pageSize]="thePageSize"
@@ -38,9 +38,9 @@
       </a>
       <mat-card-header>
         <mat-card-title>
-          <a class="link" routerLink="/products/{{item.id}}">{{ item.name }}</a>
+          <a class="link" routerLink="/products/{{item.id}}">{{ item.name | truncate:20 }}</a>
           </mat-card-title>
-        <mat-card-subtitle>{{ item.description }}</mat-card-subtitle>
+
       </mat-card-header>
       <mat-card-content>
         <p>Unit Price: {{ item.unitPrice | currency: 'USD' }}</p>
@@ -51,18 +51,16 @@
   </mat-grid-tile>
 </mat-grid-list>
 <div class="footer-pagination">
-  <div class="container-fluid">
     <div class="row align-items-center justify-content-end">
       <div class="col-md-9 d-flex justify-content-end align-items-center">
         <ngb-pagination
           [(page)]="thePageNumber"
           [pageSize]="thePageSize"
           [collectionSize]="theTotalElements"
-          [maxSize]="5"
+          [maxSize]="10"
           (pageChange)="handleListProducts()"
           class="my-pagination"></ngb-pagination>
       </div>
     </div>
-  </div>
 </div>
 

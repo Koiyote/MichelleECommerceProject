@@ -12,4 +12,35 @@
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
+/* checkout.component.scss */
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #f7f7f7;
+}
+.checkout-container h2 {
+  margin-bottom: 20px;
+}
+.checkout-container #card-element {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 20px;
+}
+.checkout-container button {
+  padding: 10px 20px;
+  font-size: 18px;
+  color: #fff;
+  background-color: #32325d;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.checkout-container button:hover {
+  background-color: #5c67d5;
+}
+
 /*# sourceMappingURL=checkout.component.css.map */

@@ -11,12 +11,14 @@
 }
 
 label {
+  margin-bottom: 0;
   font-weight: bold;
 }
 
 select.form-control {
   width: auto;
   display: inline-block;
+  margin-left: 10px;
 }
 
 .my-pagination {
@@ -27,8 +29,45 @@ select.form-control {
   .footer-pagination .row {
     flex-direction: column;
   }
+  .footer-pagination .col-md-3,
   .footer-pagination .col-md-9 {
     max-width: 100%;
+  }
+  .footer-pagination .col-md-9 {
+    justify-content: center;
+    margin-top: 10px;
+  }
+}.footer-pagination {
+   margin-top: 20px;
+   padding: 10px 0;
+   background-color: #f9f9f9;
+   border-top: 1px solid #ddd;
+ }
+
+label {
+  margin-bottom: 0;
+  font-weight: bold;
+}
+
+select.form-control {
+  width: auto;
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.my-pagination {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .footer-pagination .row {
+    flex-direction: column;
+  }
+  .footer-pagination .col-md-3,
+  .footer-pagination .col-md-9 {
+    max-width: 100%;
+  }
+  .footer-pagination .col-md-9 {
     justify-content: center;
     margin-top: 10px;
   }

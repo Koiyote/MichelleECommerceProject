@@ -5,58 +5,50 @@
                [opened]="(isHandset$ | async) === false">
     <mat-toolbar><a routerLink="/" class="text-reset text-decoration-none">Home</a></mat-toolbar>
     <mat-nav-list>
-      <!-- Add your navigation items here -->
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              Categories
-            </mat-panel-title>
+            <mat-panel-title>Categories</mat-panel-title>
           </mat-expansion-panel-header>
           <div class="accordion-content">
-            <span></span>
             <app-product-category-menu></app-product-category-menu>
           </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title>
-              Panel 2
-            </mat-panel-title>
+            <mat-panel-title>Panel 2</mat-panel-title>
           </mat-expansion-panel-header>
           <div class="accordion-content">
             <a routerLink="form" class="text-reset text-decoration-none">Sign Up</a>
           </div>
         </mat-expansion-panel>
       </mat-accordion>
-      <!-- More items can be added here -->
     </mat-nav-list>
   </mat-sidenav>
+
   <mat-sidenav-content>
     <mat-toolbar color="primary">
       <button *ngIf="(isHandset$ | async)" type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div class="container-fluid">
-        <div class="row align-items-center">
-          <div class="col-md-12 d-flex align-items-center">
-            <div class="col-md-6">
-
-                <img src="https://via.placeholder.com/50" alt="Logo" height="50" />
-
-                <span class="app-title roboto-condensed-font-style">Michi Design Thrift Books And More</span>
-
-            </div>
-            <div class="col-md-4 ">
+        <div class="row align-items-center d-flex justify-content-start">
+          <div class="col-md-5 d-flex align-items-center">
+            <img src="http://localhost:80/Book.webp" alt="Logo" height="50" />
+            <span class="app-title roboto-condensed-font-style ml-3">Michi Design Thrift Books And More</span>
+          </div>
+          <div class="col-md-4 justify-content-start">
               <app-search-bar></app-search-bar>
-            </div>
+          </div>
+          <div class="col-md-2 d-flex justify-content-end">
+            <app-login-status></app-login-status>
             <app-cart-status></app-cart-status>
           </div>
-          <div class="col-md-6 justify-content-left">
-          </div>
+
         </div>
       </div>
     </mat-toolbar>
+
     <div class="content">
       <router-outlet></router-outlet>
     </div>

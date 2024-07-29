@@ -180,71 +180,19 @@
         </fieldset>
       </div>
 
-      <div class="form-group border p-3 form-area mt-4">
+      <div class="container-fluid form-group border form-area mt-4 d-flex">
         <fieldset>
-          <h2>Credit/Debit</h2>
-          <div formGroupName="creditCard" class="col-md-12 ">
-            <div class="mt-4 form-group col-md-12">
-              <label>Card Type: </label>
-              <select class="form-control" formControlName="cardType">
-                <option>Visa</option>
-                <option>Mastercard</option>
-              </select>
-            </div>
-            <div *ngIf="creditCardType.invalid && (creditCardType.dirty || creditCardType.touched)" class="alert alert-danger mt-1">
-              <div *ngIf="creditCardType.errors?.['required']">
-                Credit Card Type is required
-              </div>
-            </div>
-            <div class="mt-4 form-group col-md-12">
-              <label> Card Holder's Name: </label>
-              <input  class="form-control" type="text" formControlName="nameOnCard">
-            </div>
-            <div *ngIf="creditCardNameOnCard.invalid && (creditCardNameOnCard.dirty || creditCardNameOnCard.touched)" class="alert alert-danger mt-1">
-              <div *ngIf="creditCardNameOnCard.errors?.['required'] || creditCardNameOnCard.errors?.['notOnlyWhitespace']">
-                Card Holder's Name is required
-              </div>
-              <div *ngIf="creditCardNameOnCard.errors?.['minlength']">
-                Card Holder's Name must be at least 2 characters long
-              </div>
-            </div>
-            <div class="mt-4 form-group col-md-12">
-              <label>Card Number:   </label>
-              <input class="form-control" type="email" formControlName="cardNumber">
-            </div>
-            <div *ngIf="creditCardNumber.invalid && (creditCardNumber.dirty || creditCardNumber.touched)" class="alert alert-danger mt-1">
-              <div *ngIf="creditCardNumber.errors?.['required']">
-                Credit Card Number is required
-              </div>
-              <div *ngIf="creditCardNumber.errors?.['pattern']">
-                Credit Card Number must be at least 16 digits long
-              </div>
-            </div>
-            <div class="mt-4 form-group col-md-12">
-              <label> Security Code (CVV)   </label>
-              <input class="form-control" type="email" formControlName="securityCode">
-            </div>
-            <div *ngIf="creditCardSecurityCode.invalid && (creditCardSecurityCode.dirty || creditCardSecurityCode.touched)" class="alert alert-danger mt-1">
-              <div *ngIf="creditCardSecurityCode.errors?.['required']">
-                CVV is required
-              </div>
-              <div *ngIf="creditCardSecurityCode.errors?.['pattern']">
-                CVV must be at least 3 digits long
-              </div>
-            </div>
-            <div class="mt-4 form-group col-md-12">
-              <label> Expiration Month  </label>
-              <select class="form-control" formControlName="expirationMonth">
-                <option *ngFor="let months of creditCardMonths">{{ months }}</option>
-              </select>
-            </div>
-            <div class="mt-4 form-group col-md-12">
-              <label> Expiration Year:  </label>
-              <select class="form-control selectpicker" data-style="btn-primary" formControlName="expirationYear" (change)="handleMonthsAndYears()">
-                <option *ngFor="let year of creditCardYears">{{year}}</option>
+          <div class="row no-gutters justify-content-begin" formGroupName="creditCard">
+              <h3 class="mt-4 p-4">Credit or Debit Card</h3>
+              <br>
+              <br>
+              <div class="no-gutters p-4" id="card-element">
 
-              </select>
-            </div>
+              </div>
+              <div id="card-errors" class="displayError.textContent!=='': 'alert alert-danger mt-1'"></div>
+              <br>
+              <br>
+              <br>
           </div>
         </fieldset>
       </div>

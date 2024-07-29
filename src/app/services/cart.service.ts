@@ -6,10 +6,20 @@ import {BehaviorSubject, Subject} from "rxjs";
   providedIn: 'root'
 })
 export class CartService {
+
   cartItems: CartItem[] = [];
   totalPrice: Subject<number> = new BehaviorSubject<number>(0);
   totalQuantity: Subject<number> = new BehaviorSubject<number>(0);
-  constructor() { }
+
+  storage: Storage = sessionStorage;
+  constructor() {
+    let data = JSON.parse(this.storage.getItem('cartItems')!);
+
+    if(data != null){
+      this.cartItems = data;
+    }
+    this.computeCartTotals();
+  }
 
   addToCart(theCartItem: CartItem){
      let alreadyExistsInCart: boolean = false;
@@ -29,6 +39,10 @@ export class CartService {
       this.computeCartTotals()
   }
 
+  persistCartItems(){
+    this.storage.setItem('cartItems', JSON.stringify(this.cartItems));
+  }
+
   computeCartTotals() {
     let totalPriceValue: number = 0;
     let totalQuantityValue: number = 0;
@@ -40,6 +54,8 @@ export class CartService {
 
     this.totalPrice.next(totalPriceValue);
     this.totalQuantity.next(totalQuantityValue);
+
+    this.persistCartItems();
   }
 
   decrementQuantity(theCartItem: CartItem) {
