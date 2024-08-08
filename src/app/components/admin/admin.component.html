@@ -1,0 +1,46 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <h2 class="mb-4 text-center">Add New Product</h2>
+      <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="p-4 border rounded bg-light">
+        <div class="form-group mb-3">
+          <label for="sku">SKU</label>
+          <input type="text" id="sku" formControlName="sku" class="form-control" placeholder="Enter SKU">
+        </div>
+        <div class="form-group mb-3">
+          <label for="name">Name</label>
+          <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter product name">
+        </div>
+        <div class="form-group mb-3">
+          <label for="description">Description</label>
+          <textarea id="description" formControlName="description" class="form-control" rows="3" placeholder="Enter product description"></textarea>
+        </div>
+        <div class="form-group mb-3">
+          <label for="unitPrice">Unit Price</label>
+          <input type="text" id="unitPrice" formControlName="unitPrice" class="form-control" placeholder="Enter unit price">
+        </div>
+        <div class="form-group mb-3">
+          <label for="imageUrl">Image URL</label>
+          <input type="text" id="imageUrl" formControlName="imageUrl" class="form-control" placeholder="Enter image URL">
+        </div>
+        <div class="form-group mb-3 form-check">
+          <input type="checkbox" id="active" formControlName="active" class="form-check-input">
+          <label for="active" class="form-check-label">Active</label>
+        </div>
+        <div class="form-group mb-3">
+          <label for="unitsInStock">Units in Stock</label>
+          <input type="number" id="unitsInStock" formControlName="unitsInStock" class="form-control" placeholder="Enter units in stock">
+        </div>
+        <div class="form-group mb-3">
+          <label>Category</label>
+          <select class="form-control custom-select-box" formControlName="state">
+            <option *ngFor="let tempProductCategory of productCategory">{{tempProductCategory.categoryName}}</option>
+          </select>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
