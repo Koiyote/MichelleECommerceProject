@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {ProductService} from "../../services/product.service";
 import {Product} from "../../common/product";
 import {ProductCategory} from "../../common/product-category";
@@ -17,31 +17,47 @@ export class AdminComponent implements OnInit{
 
   constructor(private fb: FormBuilder, private productService: ProductService) {
     this.productForm = this.fb.group({
-      sku: ['', Validators.required],
-      name: ['', Validators.required],
-      description: [''],
-      unitPrice: ['', Validators.required],
-      imageUrl: [''],
-      active: [true],
-      unitsInStock: ['', Validators.required],
-      productCategory: ['', Validators.required]
-    });
+        product: this.fb.group({
+          sku: new FormControl('', [Validators.required]),
+          name: new FormControl('', [Validators.required]),
+          description: new FormControl('', [Validators.required]),
+          unitPrice: new FormControl('', [Validators.required]),
+          imageUrl: new FormControl('', [Validators.required]),
+          active: new FormControl('', [Validators.required]),
+          unitsInStock: new FormControl('', [Validators.required]),
+          productCategory: new FormControl(this.productCategory, [Validators.required])
+
+    })});
+
   }
 
+  get sku(){ return this.productForm.get('product.sku')!;}
+  get name(){return this.productForm.get('product.name')!;}
+  get description(){return this.productForm.get('product.description')!;}
+  get unitPrice(){return this.productForm.get('product.unitPrice')!;}
+
+  get imageUrl(){return this.productForm.get('product.imageUrl')!;}
+  get active(){return this.productForm.get('product.active')!;}
+
+  get unitInStock(){return this.productForm.get('product.unitsInStock')!}
+
   ngOnInit(): void {
-
-
     this.getProductCategory();
   }
 
   onSubmit(): void {
-    if (this.productForm.valid) {
-      const product: Product = this.productForm.value;
+    if (this.productForm.invalid) {
+      this.productForm.markAllAsTouched();
+      return;
+    }
+    const product = this.productForm.controls['product'].value;
+
+
       this.productService.createProduct(product).subscribe(result => {
-        console.log('Product created successfully');
+        alert("Product successfully entered!")
+        alert(Product);
         this.resetForm();
       });
-    }
   }
 
   private resetForm() {
@@ -55,6 +71,7 @@ export class AdminComponent implements OnInit{
       unitsInStock: '',
       productCategory: ''
     });
+    this.productForm.valid;
   }
 
   private getProductCategory():void {

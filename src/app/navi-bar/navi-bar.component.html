@@ -1,14 +1,23 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav autosize" fixedInViewport
+  <mat-sidenav #drawer class="sidenav autosize"
+               fixedInViewport
                [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
                [mode]="(isHandset$ | async) ? 'over' : 'side'"
                [opened]="(isHandset$ | async) === false">
-    <mat-toolbar><a routerLink="/" class="text-reset text-decoration-none">Home</a></mat-toolbar>
-    <mat-nav-list>
-      <mat-accordion>
-        <mat-expansion-panel>
+
+    <!-- Toolbar with branding or logo -->
+    <button mat-raised-button color="primary" class="home-button">
+      <mat-icon>home</mat-icon> Home
+    </button>
+
+    <!-- Navigation list with categories -->
+    <mat-nav-list class="sidenav-nav-list">
+      <mat-accordion class="sidenav-accordion">
+        <mat-expansion-panel class="sidenav-expansion-panel">
           <mat-expansion-panel-header>
-            <mat-panel-title>Categories</mat-panel-title>
+            <mat-panel-title>
+              Categories
+            </mat-panel-title>
           </mat-expansion-panel-header>
           <div class="accordion-content">
             <app-product-category-menu></app-product-category-menu>
@@ -26,7 +35,7 @@
       <div class="container-fluid">
         <div class="row align-items-center d-flex justify-content-start">
           <div class="col-md-5 d-flex align-items-center">
-            <img src="https://localhost:80/Book.webp" alt="Logo" height="50" />
+            <img src="http://localhost:8081/book.webp" alt="Logo" height="50" />
             <span class="app-title roboto-condensed-font-style ml-3">Michi Design Thrift Books And More</span>
           </div>
           <div class="col-md-4 justify-content-start">

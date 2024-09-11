@@ -81,3 +81,22 @@ html {
 .d-flex{
   grid-gap: 15px;
 }
+
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 250px;
+}
+
+.sidenav-toolbar {
+  background-color: #3f51b5;
+  color: white;
+  font-size: 1.25rem;
+}
+
+.main-content {
+  padding: 16px;
+}

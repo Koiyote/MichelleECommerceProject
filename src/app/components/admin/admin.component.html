@@ -3,42 +3,83 @@
     <div class="col-md-8">
       <h2 class="mb-4 text-center">Add New Product</h2>
       <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="p-4 border rounded bg-light">
+
+        <!-- SKU Field -->
         <div class="form-group mb-3">
           <label for="sku">SKU</label>
           <input type="text" id="sku" formControlName="sku" class="form-control" placeholder="Enter SKU">
+          <div *ngIf="sku?.invalid && sku?.touched" class="text-danger">
+            SKU is required.
+          </div>
         </div>
+
+        <!-- Name Field -->
         <div class="form-group mb-3">
           <label for="name">Name</label>
           <input type="text" id="name" formControlName="name" class="form-control" placeholder="Enter product name">
+          <div *ngIf="name?.invalid && name?.touched" class="text-danger">
+            Name is required.
+          </div>
         </div>
+
+        <!-- Description Field -->
         <div class="form-group mb-3">
           <label for="description">Description</label>
           <textarea id="description" formControlName="description" class="form-control" rows="3" placeholder="Enter product description"></textarea>
+          <div *ngIf="description?.invalid && description?.touched" class="text-danger">
+            Description is required.
+          </div>
         </div>
+
+        <!-- Unit Price Field -->
         <div class="form-group mb-3">
           <label for="unitPrice">Unit Price</label>
           <input type="text" id="unitPrice" formControlName="unitPrice" class="form-control" placeholder="Enter unit price">
+          <div *ngIf="unitPrice?.invalid && unitPrice?.touched" class="text-danger">
+            Unit price is required.
+          </div>
         </div>
+
+        <!-- Image URL Field -->
         <div class="form-group mb-3">
           <label for="imageUrl">Image URL</label>
           <input type="text" id="imageUrl" formControlName="imageUrl" class="form-control" placeholder="Enter image URL">
+          <div *ngIf="imageUrl?.invalid && imageUrl?.touched" class="text-danger">
+            Image URL is required.
+          </div>
         </div>
+
+        <!-- Active Checkbox -->
         <div class="form-group mb-3 form-check">
           <input type="checkbox" id="active" formControlName="active" class="form-check-input">
           <label for="active" class="form-check-label">Active</label>
         </div>
+
+        <!-- Units in Stock Field -->
         <div class="form-group mb-3">
           <label for="unitsInStock">Units in Stock</label>
           <input type="number" id="unitsInStock" formControlName="unitsInStock" class="form-control" placeholder="Enter units in stock">
+          <div *ngIf="unitInStock?.invalid && unitInStock?.touched" class="text-danger">
+            Units in stock is required.
+          </div>
         </div>
+
+        <!-- Product Category Dropdown -->
         <div class="form-group mb-3">
-          <label>Category</label>
-          <select class="form-control custom-select-box" formControlName="state">
-            <option *ngFor="let tempProductCategory of productCategory">{{tempProductCategory.categoryName}}</option>
+          <label for="productCategory">Category</label>
+          <select id="productCategory" class="form-control custom-select-box" formControlName="productCategory">
+            <option *ngFor="let tempProductCategory of productCategory" [value]="tempProductCategory.categoryId">
+              {{ tempProductCategory.categoryName }}
+            </option>
           </select>
+          <div *ngIf="productForm.get('productCategory')?.invalid && productForm.get('productCategory')?.touched" class="text-danger">
+            Category is required.
+          </div>
         </div>
+
+        <!-- Submit Button -->
         <div class="text-center">
-          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Save</button>
         </div>
       </form>
     </div>

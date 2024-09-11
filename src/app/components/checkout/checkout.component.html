@@ -75,6 +75,10 @@
               </div>
             </div>
             <div class="mt-4 form-group col-md-12">
+              <label>Street 2: </label>
+              <input class="form-control" type="text" formControlName="street2">
+            </div>
+            <div class="mt-4 form-group col-md-12">
               <label> City:  </label>
               <input  class="form-control" type="text" formControlName="city">
             </div>
@@ -145,6 +149,10 @@
               </div>
             </div>
             <div class="mt-4 form-group col-md-12">
+              <label>Street 2: </label>
+              <input class="form-control" type="text" formControlName="street2">
+            </div>
+            <div class="mt-4 form-group col-md-12">
               <label> City:  </label>
               <input  class="form-control" type="text" formControlName="city">
             </div>
@@ -182,14 +190,14 @@
 
       <div class="container-fluid form-group border form-area mt-4 d-flex">
         <fieldset>
-          <div class="row no-gutters justify-content-begin" formGroupName="creditCard">
+          <div class="row no-gutters justify-content-begin">
               <h3 class="mt-4 p-4">Credit or Debit Card</h3>
               <br>
               <br>
               <div class="no-gutters p-4" id="card-element">
 
               </div>
-              <div id="card-errors" class="displayError.textContent!=='': 'alert alert-danger mt-1'"></div>
+              <div id="card-errors" role="alert"></div>
               <br>
               <br>
               <br>
@@ -205,7 +213,7 @@
           </div>
         </fieldset>
         <div class="mt-4 col-md-3">
-        <button type="submit" class="mt-6 btn btn-primary">Purchase</button>
+        <button type="submit" [disabled]="isDisabled" class="mt-6 btn btn-primary">Purchase</button>
         </div>
       </div>
   </form>
